@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Card from '../components/Card/Card.astro';
+import { CardVariant } from '@components/Card/Card';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -39,10 +40,13 @@ import Card from '../components/Card.astro';
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
     <ul role="list" class="link-card-grid">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <Card>JS</Card>
+      <Card variant={CardVariant.secondary}>Text</Card>
+      <Card variant={CardVariant.discord}>Discord</Card>
+      <Card variant={CardVariant.instagram}>Instagram</Card>
+      <Card variant={CardVariant.twitter}>Twitter</Card>
+      <Card variant={CardVariant.twitch}>Twitch</Card>
+      <Card variant={CardVariant.linkedin}>LinkedIn</Card>
     </ul>
   </main>
 </Layout>
