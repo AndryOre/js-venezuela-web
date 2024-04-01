@@ -13,51 +13,92 @@ import LinkedInLogo from '@assets/linkedin.svg';
 ---
 
 <Layout title="JavaScript Venezuela">
-  <main class="grid grid-cols-2 gap-3 overflow-hidden px-6 py-8">
-    <BaseCard class="col-span-2 flex flex-col gap-8">
-      <div class="flex items-center justify-between">
-        <Image src={JSVE} alt="JSVE Logo" class="h-32 w-auto" />
-        <Image src={Turpial} alt="Turpial Logo" class="h-32 w-auto" />
-      </div>
-      <div class="flex items-center gap-2">
-        <Image src={Envelope} alt="Envelope" class="h-5 w-auto self-end" />
-        <p class="font-bold">soporte@jsvenezuela.org</p>
-      </div>
-    </BaseCard>
-    <BaseCard variant={CardVariant.secondary} class="col-span-2 text-4xl font-extrabold"
-      ><h1>Bienvenidos a la Comunidad JavaScript Venezuela</h1></BaseCard
-    >
-    <BaseCard variant={CardVariant.secondary} class="col-span-2 text-2xl font-medium"
-      ><p>
-        Únete para <span class="text-[#F7DF1E]">ampliar tu conocimiento</span>, colaborar en
-        proyectos y conectar con una comunidad activa que impulsa el cambio tecnológico desde
-        Venezuela al mundo.
-      </p></BaseCard
-    >
-    <SocialCard variant={SocialCardVariant.discord} showTagline class="col-span-2">
-      <Image src={DiscordLogo} alt="Discord Logo" slot="icon" />
+  <main class="mx-auto flex max-w-[1296px] flex-col gap-6">
+    <div class="grid grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-[1fr_1fr_0.55fr]">
+      <BaseCard
+        class="col-span-2 flex flex-col gap-8 px-4 py-6 md:col-span-1 md:justify-between md:px-6 md:py-9 lg:col-span-2 xl:col-span-1 xl:row-span-10"
+      >
+        <div class="flex w-full justify-between md:flex-col md:gap-8">
+          <Image src={JSVE} alt="JSVE Logo" class="h-32 w-auto md:order-2 md:self-start" />
+          <Image src={Turpial} alt="Turpial Logo" class="h-32 w-auto md:order-1 md:self-end" />
+        </div>
+        <div class="flex h-fit items-center gap-2">
+          <Image src={Envelope} alt="Envelope" class="h-5 w-auto self-end" />
+          <p class="font-bold">soporte@jsvenezuela.org</p>
+        </div>
+      </BaseCard>
+      <BaseCard
+        class="col-span-1 hidden bg-transparent md:row-span-2 lg:col-span-1 lg:row-span-1 lg:block lg:p-0 xl:col-start-3 xl:row-span-6"
+      >
+        <iframe
+          src="https://discord.com/widget?id=1198435986376495114&theme=dark"
+          allowtransparency="true"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+          class="h-full w-full rounded-3xl"></iframe>
+      </BaseCard>
+      <BaseCard
+        variant={CardVariant.secondary}
+        class="col-span-2 min-h-[317px] text-4xl font-extrabold md:col-span-1 lg:col-span-1 xl:col-start-2 xl:row-span-5 xl:row-start-1"
+        ><h1>Bienvenidos a la Comunidad JavaScript Venezuela</h1></BaseCard
+      >
+      <BaseCard
+        variant={CardVariant.secondary}
+        class="col-span-2 min-h-[317px] text-2xl font-medium md:col-span-1 lg:col-span-1 xl:row-span-5"
+        ><p>
+          Únete para <span class="text-[#F7DF1E]">ampliar tu conocimiento</span>, colaborar en
+          proyectos y conectar con una comunidad activa que impulsa el cambio tecnológico desde
+          Venezuela al mundo.
+        </p></BaseCard
+      >
 
-      <h2 slot="tagline">¡Únete a la comunidad!</h2>
-    </SocialCard>
-    <SocialCard variant={SocialCardVariant.instagram}>
-      <Image src={InstagramLogo} alt="Instagram Logo" slot="icon" />
+      <SocialCard
+        variant={SocialCardVariant.discord}
+        showTagline
+        class="col-span-2 md:col-span-1 xl:row-span-4"
+        href="https://discord.com/invite/WPHTNgFPkx"
+      >
+        <Image src={DiscordLogo} alt="Discord Logo" slot="icon" />
 
-      <h2 slot="tagline">¡Mira nuestros reels!</h2>
-    </SocialCard>
-    <SocialCard variant={SocialCardVariant.twitter}>
-      <Image src={TwitterLogo} alt="Twitter Logo" slot="icon" />
+        <h2 slot="tagline">¡Únete a la comunidad!</h2>
+      </SocialCard>
+    </div>
+    <div class="col-span-2 grid grid-cols-4 gap-6">
+      <SocialCard
+        variant={SocialCardVariant.instagram}
+        class="col-span-2 lg:col-span-1 lg:row-span-2"
+        href="https://instagram.com/javascript_vzla/"
+      >
+        <Image src={InstagramLogo} alt="Instagram Logo" slot="icon" />
 
-      <h2 slot="tagline">¡Únete al debate!</h2>
-    </SocialCard>
-    <SocialCard variant={SocialCardVariant.twitch}>
-      <Image src={TwitchLogo} alt="Twitch Logo" slot="icon" />
+        <h2 slot="tagline">¡Mira nuestros reels!</h2>
+      </SocialCard>
+      <SocialCard
+        variant={SocialCardVariant.twitter}
+        class="col-span-2 lg:col-span-1 lg:row-span-2"
+        href="https://x.com/javascript_vzla"
+      >
+        <Image src={TwitterLogo} alt="Twitter Logo" slot="icon" />
 
-      <h2 slot="tagline">¡Aprendamos juntos!</h2>
-    </SocialCard>
-    <SocialCard variant={SocialCardVariant.linkedin}>
-      <Image src={LinkedInLogo} alt="LinkedIn Logo" slot="icon" />
+        <h2 slot="tagline">¡Únete al debate!</h2>
+      </SocialCard>
+      <SocialCard
+        variant={SocialCardVariant.twitch}
+        class="col-span-2 lg:col-span-1 lg:row-span-2"
+        href="https://twitch.tv/javascript_vzla"
+      >
+        <Image src={TwitchLogo} alt="Twitch Logo" slot="icon" />
 
-      <h2 slot="tagline">¡Conecta con nosotros!</h2>
-    </SocialCard>
+        <h2 slot="tagline">¡Aprendamos juntos!</h2>
+      </SocialCard>
+      <SocialCard
+        variant={SocialCardVariant.linkedin}
+        class="col-span-2 lg:col-span-1 lg:row-span-2"
+        href="https://linkedin.com/company/js-venezuela/"
+      >
+        <Image src={LinkedInLogo} alt="LinkedIn Logo" slot="icon" />
+
+        <h2 slot="tagline">¡Conecta con nosotros!</h2>
+      </SocialCard>
+    </div>
   </main>
 </Layout>

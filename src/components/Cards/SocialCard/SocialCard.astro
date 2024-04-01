@@ -13,7 +13,7 @@ export enum SocialCardVariant {
 }
 
 export const SocialVariants: Record<SocialCardVariant, string> = {
-  [SocialCardVariant.discord]: 'bg-gradient-to-b from-[#636DE0] to-[#3842B0] text-white',
+  [SocialCardVariant.discord]: 'bg-gradient-to-b from-[#636DE0] to-[#3842B0] text-white p-6 md:p-6',
   [SocialCardVariant.instagram]: 'bg-gradient-to-b from-[#BB00AD] to-[#F1000B] text-white',
   [SocialCardVariant.twitter]: 'bg-gradient-to-b from-black to-[#38393A] text-white',
   [SocialCardVariant.twitch]: 'bg-gradient-to-b from-[#9147FF] to-[#6837B2] text-white',
@@ -24,29 +24,53 @@ interface Props {
   class?: string;
   variant?: SocialCardVariant;
   showTagline?: boolean;
+  href?: string;
 }
 
-const { class: className, variant = SocialCardVariant.discord, showTagline = false } = Astro.props;
+const {
+  class: className,
+  variant = SocialCardVariant.discord,
+  showTagline = false,
+  href,
+} = Astro.props;
 
 const classes = {
-  container: cn('grid gap-4', SocialVariants[variant], className),
+  container: cn('grid gap-4 p-3 md:px-9 md:py-6', SocialVariants[variant], className),
   arrowUpRight: 'h-9 w-auto justify-self-end flex',
   icon: 'flex h-14 w-14',
-  tagline: cn('text-xl font-bold md:block', {
+  tagline: cn('text-xl font-bold md:block self-end', {
     block: showTagline,
     hidden: !showTagline,
   }),
 };
 ---
 
-<BaseCard class={classes.container}>
-  <div class={classes.arrowUpRight}>
-    <Image src={ArrowUpRight} alt="Arrow Up Right" />
-  </div>
-  <div class={classes.icon}>
-    <slot name="icon" />
-  </div>
-  <div class={classes.tagline}>
-    <slot name="tagline" />
-  </div>
-</BaseCard>
+{
+  href ? (
+    <a href={href} class={className}>
+      <BaseCard class={classes.container}>
+        <div class={classes.arrowUpRight}>
+          <Image src={ArrowUpRight} alt="Arrow Up Right" />
+        </div>
+        <div class={classes.icon}>
+          <slot name="icon" />
+        </div>
+        <div class={classes.tagline}>
+          <slot name="tagline" />
+        </div>
+      </BaseCard>
+    </a>
+  ) : (
+    <BaseCard class={classes.container}>
+      <div class={classes.arrowUpRight}>
+        <Image src={ArrowUpRight} alt="Arrow Up Right" />
+      </div>
+      <div class={classes.icon}>
+        <slot name="icon" />
+      </div>
+      <div class={classes.tagline}>
+        <slot name="tagline" />
+      </div>
+    </BaseCard>
+  )
+}
