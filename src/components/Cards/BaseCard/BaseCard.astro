@@ -1,0 +1,26 @@
+---
+import { cn } from '@common';
+
+export enum CardVariant {
+  primary = 'primary',
+  secondary = 'secondary',
+}
+
+export const Variants: Record<CardVariant, string> = {
+  [CardVariant.primary]: 'bg-[#F7DF1E] text-black',
+  [CardVariant.secondary]: 'bg-white/10 border border-white/20 backdrop-blur-sm text-white',
+};
+
+interface Props {
+  class?: string;
+  variant?: CardVariant;
+}
+
+const { class: className, variant = CardVariant.primary } = Astro.props;
+
+const classes = cn('rounded-3xl p-6 overflow-hidden h-auto w-full', Variants[variant], className);
+---
+
+<div class={classes}>
+  <slot />
+</div>
