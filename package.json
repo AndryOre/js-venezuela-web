@@ -25,7 +25,9 @@
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/ts-plugin": "^1.5.3",
-    "astro": "^4.4.5",
+    "@fontsource/lato": "^5.0.18",
+    "astro": "^4.5.12",
+    "sharp": "^0.33.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   },
