@@ -33,7 +33,10 @@ const { title } = Astro.props;
       property="og:description"
       content="JavaScript Venezuela, un punto de encuentro para todos aquellos interesados en el vasto mundo de la tecnología, con un enfoque especial en JavaScript y áreas relacionadas."
     />
-    <meta property="og:image" content=`https://jsvenezuela.org/thumbnail.svg` />
+    <meta
+      property="og:image"
+      content=`https://res.cloudinary.com/dhwxnbnaj/image/upload/f_auto,q_auto/v1/JS%20Venezuela/vg3tksy9yrisvqlqhy4f`
+    />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -43,9 +46,18 @@ const { title } = Astro.props;
       property="twitter:description"
       content="JavaScript Venezuela, un punto de encuentro para todos aquellos interesados en el vasto mundo de la tecnología, con un enfoque especial en JavaScript y áreas relacionadas."
     />
-    <meta property="twitter:image" content="https://jsvenezuela.org/thumbnail.svg" />
+    <meta
+      property="twitter:image"
+      content="https://res.cloudinary.com/dhwxnbnaj/image/upload/f_auto,q_auto/v1/JS%20Venezuela/vg3tksy9yrisvqlqhy4f"
+    />
   </head>
   <body class="bg-black px-6 py-8 font-sans text-neutral-50 lg:p-16">
     <slot />
   </body>
 </html>
+
+<style>
+  body {
+    background: url('/src/assets/gradient.svg') no-repeat;
+  }
+</style>
